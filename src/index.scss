@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'OverpassLight';
+  src:
+    local('OverpassLight'),
+    url('./assets/fonts/Overpass-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OverpassBold';
+  src:
+    local('OverpassBold'),
+    url('./assets/fonts/Overpass-Bold.ttf') format('truetype');
+}
+
+body {
+  font-family: 'OverpassLight';
+}
