@@ -7,7 +7,8 @@ function Shipping() {
   const [mobile, setMobile] = useState('');
   const [visa, setVisa] = useState('');
   const [text, setText] = useAtom(textAtom);
-  const [decimal, setDecimat] = useState('');
+  const [decimal, setDecimal] = useState('');
+  const [currency, setCurrency] = useState('');
   return (
     <div className="grid column gap-2">
       <p className="font-bold text-[24px]">Shipping</p>
@@ -32,7 +33,15 @@ function Shipping() {
         value={decimal}
         placeholder="Decimal"
         onChange={(event) => {
-          setDecimat(event.target.value.decimalOnly());
+          setDecimal(event.target.value.decimalOnly());
+        }}
+      />
+      <p>Type input currency</p>
+      <Input
+        value={currency}
+        placeholder="Currency"
+        onChange={(event) => {
+          setCurrency(event.target.value.formatToCurrency());
         }}
       />
       <p>Type input Mobile Format xxx-xxx-xxxx ({mobile})</p>
