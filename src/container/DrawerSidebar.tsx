@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 export default function DrawerSidebar({
   children,
@@ -9,6 +9,9 @@ export default function DrawerSidebar({
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
 }) {
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
   return (
     <main
       className={
@@ -28,9 +31,7 @@ export default function DrawerSidebar({
       </section>
       <section
         className="w-screen h-full cursor-pointer"
-        onClick={() => {
-          setIsOpen(false);
-        }}
+        onClick={handleClose}
       ></section>
     </main>
   );

@@ -39,6 +39,7 @@ function Shipping() {
       <p>Type input currency</p>
       <Input
         value={currency}
+        textAlignRight={true}
         placeholder="Currency"
         onChange={(event) => {
           setCurrency(event.target.value.formatToCurrency());

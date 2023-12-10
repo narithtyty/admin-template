@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 const Modal = ({
   isOpen,
@@ -9,6 +9,9 @@ const Modal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const handleClose = useCallback(() => {
+    onClose();
+  }, [onClose]);
   return (
     <div
       className={`fixed top-0 left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 ${
@@ -22,7 +25,7 @@ const Modal = ({
           <button
             type="button"
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-            onClick={onClose}
+            onClick={handleClose}
           >
             Close
           </button>

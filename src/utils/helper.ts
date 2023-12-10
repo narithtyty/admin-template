@@ -191,7 +191,9 @@ String.prototype.decimalOnly = function () {
   return this.replace(/(\.\d*)\.+/g, '$1').replace(/[^\d.]/g, '');
 };
 String.prototype.formatToCurrency = function () {
-  return new Intl.NumberFormat('en-US').format(Number(this.numberOnly()));
+  return this.numberOnly() === ''
+    ? ''
+    : new Intl.NumberFormat('en-US').format(Number(this.numberOnly()));
 };
 Number.prototype.formatToCurrency = function () {
   return this.toString().formatToCurrency();
