@@ -40,9 +40,7 @@ const Login = () => {
       <div className="w-1/2 hidden lg:flex bg-gradient-to-tr from-sky-800 to-blue-700 i justify-around items-center">
         <div>
           <h1 className="text-white font-bold text-4xl font-sans">GoFinance</h1>
-          <p className="text-white mt-1">
-            The most popular peer to peer lending at SEA
-          </p>
+          <p className="text-white mt-1">The most popular peer to peer lending at SEA</p>
           <button
             type="submit"
             className="block w-28 bg-white text-sky-800 mt-4 py-2 rounded-2xl font-bold mb-2"
@@ -53,27 +51,21 @@ const Login = () => {
       </div>
       <div className="flex lg:w-1/2 w-full justify-center items-center bg-white">
         <div className="bg-white md:w-1/2 w-full flex-col justify-center items-center text-center px-[20px]">
-          <h1 className="text-gray-800 font-bold text-2xl mb-1">
-            Hello Again!
-          </h1>
+          <h1 className="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
           <div className="grid gap-[10px]">
             <div className="flex items-center">
               <Input
                 placeholder="Email Address"
                 value={loginForm.username}
-                onChange={(e) =>
-                  setLoginForm({ ...loginForm, username: e.target.value })
-                }
+                onChange={(e) => setLoginForm({ ...loginForm, username: e.target.value })}
               />
             </div>
             <div className="flex items-center">
               <Input
                 placeholder="Password"
                 value={loginForm.password}
-                onChange={(e) =>
-                  setLoginForm({ ...loginForm, password: e.target.value })
-                }
+                onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
               />
             </div>
             <div className="flex items-center justify-center">
@@ -106,9 +98,7 @@ const Login = () => {
               />
             </div>
           </div>
-          <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">
-            Forgot Password ?
-          </span>
+          <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
         </div>
       </div>
     </div>

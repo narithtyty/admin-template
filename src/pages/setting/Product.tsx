@@ -7,10 +7,7 @@ function Product() {
     <div>
       <p className="font-bold text-[24px]">Product</p>
       <p>Count: {count}</p>
-      <Button
-        title="Click Me"
-        onClick={() => setCount((prevCount) => prevCount + 1)}
-      />
+      <Button title="Click Me" onClick={() => setCount((prevCount) => prevCount + 1)} />
     </div>
   );
 }

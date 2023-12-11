@@ -6,6 +6,7 @@ const DashboardPage: Route[] = [
     index: true,
     name: 'dashboard',
     element: <Dashboard />,
+    roles: ['user', 'admin'],
     // children : []
   },
   {
@@ -13,6 +14,7 @@ const DashboardPage: Route[] = [
     name: 'Dashboard',
     icon: HiChartPie,
     element: <Dashboard />,
+    roles: ['user', 'admin'],
     children: [],
   },
 ];

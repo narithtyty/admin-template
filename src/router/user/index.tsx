@@ -6,6 +6,7 @@ const UserPage = [
     name: 'User',
     element: <User />,
     children: [],
+    roles: ['user', 'admin'],
     icon: HiUser,
   },
 ];

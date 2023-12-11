@@ -2,11 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@/index.scss';
 import { Provider } from 'jotai';
-import {
-  RouterProvider,
-  createBrowserRouter,
-  RouteObject,
-} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, RouteObject } from 'react-router-dom';
 import { router } from '@/router';
 import '@/utils/helper';
 import * as echarts from 'echarts/core';

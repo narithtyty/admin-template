@@ -49,21 +49,43 @@ const Users = () => (
           Jessica Jones, <span className="font-light text-gray-500">27</span>
         </h1>
         <p className="font-light text-gray-600 mt-3">Bucharest, Romania</p>
-        <p className="mt-8 text-gray-500">
-          Solution Manager - Creative Tim Officer
-        </p>
+        <p className="mt-8 text-gray-500">Solution Manager - Creative Tim Officer</p>
         <p className="mt-2 text-gray-500">University of Computer Science</p>
       </div>
       <div className="mt-12 flex flex-col justify-center">
         <p className="text-gray-600 text-center font-light lg:px-16">
-          An artist of considerable range, Ryan — the name taken by
-          Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-          records all of his own music, giving it a warm, intimate feel with a
-          solid groove structure. An artist of considerable range.
+          An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based
+          Nick Murphy — writes, performs and records all of his own music, giving it a warm,
+          intimate feel with a solid groove structure. An artist of considerable range.
         </p>
-        <button className="text-indigo-500 py-2 px-4  font-medium mt-4">
-          Show more
-        </button>
+        <button className="text-indigo-500 py-2 px-4  font-medium mt-4">Show more</button>
+      </div>
+      <div className="max-w-8xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-lg shadow overflow-hidden">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-4">
+            <div className="lg:aspect-w-2 lg:aspect-h-1">
+              <img
+                src="https://via.placeholder.com/300"
+                alt="Placeholder Image"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="py-10 px-6">
+              <h1 className="text-2xl font-bold text-gray-800">NIKE RUN WITH THE PACK</h1>
+              <p className="mt-4 text-lg text-gray-600">GET 20% OFF</p>
+              <p className="mt-2 text-lg text-gray-600">ON YOUR NEXT ORDER OVER $50</p>
+              <div className="mt-6">
+                <a
+                  href="#"
+                  className="inline-block bg-black text-white text-sm font-semibold uppercase py-3 px-6 rounded-md transition duration-300 ease-in-out hover:bg-gray-800"
+                >
+                  GET DISCOUNT
+                </a>
+              </div>
+              <p className="mt-6 text-sm text-gray-500">OFFER VALID UNTIL 24TH MARCH, 2021</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -12,9 +12,7 @@ const Layout = () => {
   const [showButton, setShowButton] = useState(false);
   const [isOpen, setIsOpen] = useAtom(open);
   const maxWidth = '(max-width: 1020px)';
-  const [isSmallScreen, setIsSmallScreen] = useState(
-    window.matchMedia(maxWidth).matches
-  );
+  const [isSmallScreen, setIsSmallScreen] = useState(window.matchMedia(maxWidth).matches);
   const { pathname } = useLocation();
   const scrollRef = useRef<HTMLDivElement | null>(null);
   // useAppStatus check app status or not
@@ -88,19 +86,12 @@ const Layout = () => {
       >
         {/* Header with Toggle Sidebar Button */}
         <header className="flex justify-between items-center bg-gray-700 p-4">
-          <Button
-            type="secondary"
-            onClick={toggleSidebar}
-            title="Toggle Sidebar"
-          />
+          <Button type="secondary" onClick={toggleSidebar} title="Toggle Sidebar" />
           {/* Other header content */}
         </header>
 
         {/* Outlet for rendering nested routes */}
-        <div
-          className="p-[20px] h-screen overflow-y-auto pb-[100px]"
-          ref={scrollRef}
-        >
+        <div className="p-[20px] h-screen overflow-y-auto pb-[100px]" ref={scrollRef}>
           <Outlet />
         </div>
         <footer className="bg-gray-800 text-white p-4 text-center fixed bottom-0 w-full">

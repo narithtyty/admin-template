@@ -8,4 +8,5 @@ export interface Route {
   icon?: IconType | null;
   element?: ReactNode;
   children?: Route[];
+  roles?: string[];
 }

@@ -4,10 +4,10 @@ import { useAuth } from './auth';
 
 const ProtectedRoute = ({
   children,
-  requiredRole,
+  requiredRoles,
 }: {
   children: React.ReactNode;
-  requiredRole?: string;
+  requiredRoles?: string[];
 }) => {
   const { token, role } = useAuth();
   const navigate = useNavigate();
@@ -16,11 +16,11 @@ const ProtectedRoute = ({
     if (!token) {
       // Redirect to login page if not logged in
       navigate('/login');
-    } else if (requiredRole && role !== requiredRole) {
+    } else if (requiredRoles && requiredRoles.length > 0 && !requiredRoles.includes(role)) {
       // Redirect to notfound page if the user doesn't have the required role
       navigate('/notfound');
     }
-  }, [token, role, requiredRole, navigate]);
+  }, [token, role, requiredRoles, navigate]);
 
   return token ? children : null;
 };

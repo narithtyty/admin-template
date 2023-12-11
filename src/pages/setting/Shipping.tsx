@@ -50,9 +50,7 @@ function Shipping() {
         value={mobile}
         placeholder="Mobile"
         onChange={(event) =>
-          setMobile(
-            event.target.value.numberOnly().formatToPattern('xxx-xxx-xxxx')
-          )
+          setMobile(event.target.value.numberOnly().formatToPattern('xxx-xxx-xxxx'))
         }
       />
       <p>Type input visa Format xxxx xxxx xxxx xxxx ({visa})</p>
@@ -60,11 +58,7 @@ function Shipping() {
         value={visa}
         placeholder="Visa"
         onChange={(event) =>
-          setVisa(
-            event.target.value
-              .numberOnly()
-              .formatToPattern('xxxx xxxx xxxx xxxx')
-          )
+          setVisa(event.target.value.numberOnly().formatToPattern('xxxx xxxx xxxx xxxx'))
         }
       />
     </div>

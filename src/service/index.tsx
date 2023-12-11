@@ -46,10 +46,28 @@ class BaseService {
     return this.api.get(endPoint, configs);
   }
 
-  postJSON(endPoint: string, params: any, configs = {}): Promise<any> {
-    return this.api.post(endPoint, params, configs);
+  postJSON(endPoint: string, params: object, isFormData = false, configs = {}): Promise<any> {
+    configs = {
+      ...configs,
+      Headers: {
+        'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
+      },
+    };
+    const requestData = isFormData ? this.convertJsonToFormData(params) : params;
+
+    return this.api.post(endPoint, requestData, configs);
+  }
+
+  private convertJsonToFormData(jsonData: any): FormData {
+    const formData = new FormData();
+    for (const key in jsonData) {
+      if (Object.prototype.hasOwnProperty.call(jsonData, key)) {
+        formData.append(key, jsonData[key]);
+      }
+    }
+    return formData;
   }
 }
 
-// export const baseService = new BaseService()
-export { BaseService };
+const baseService = new BaseService();
+export { BaseService, baseService };

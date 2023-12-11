@@ -7,6 +7,7 @@ const AboutPage: Route[] = [
     name: 'About',
     icon: HiBriefcase,
     element: <About />,
+    roles: ['user', 'admin'],
     children: [],
   },
 ];

@@ -29,10 +29,7 @@ export default function DrawerSidebar({
       >
         {children}
       </section>
-      <section
-        className="w-screen h-full cursor-pointer"
-        onClick={handleClose}
-      ></section>
+      <section className="w-screen h-full cursor-pointer" onClick={handleClose}></section>
     </main>
   );
 }

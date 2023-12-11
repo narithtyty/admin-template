@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useState,
-  useRef,
-  KeyboardEvent,
-  ClipboardEvent,
-} from 'react';
+import { useEffect, useState, useRef, KeyboardEvent, ClipboardEvent } from 'react';
 import { useAuth } from '@/auth';
 export const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
   const key = event.key;

@@ -25,18 +25,11 @@ const columns = [
   //   footer: info => info.column.id,
   // }),
   columnHelper.accessor('thumbnailUrl', {
-    header: () => (
-      <div className="flex text-center justify-center">thumbnailUrl</div>
-    ),
+    header: () => <div className="flex text-center justify-center">thumbnailUrl</div>,
     //   cell: info => info.renderValue(),
     cell: (info) => (
       <div className="flex text-center justify-center">
-        <img
-          className="rounded-full"
-          src={info.getValue()}
-          width="40"
-          height="40"
-        />
+        <img className="rounded-full" src={info.getValue()} width="40" height="40" />
       </div>
     ),
     footer: (info) => info.column.id,
@@ -73,11 +66,7 @@ function Sale() {
     <div>
       <p className="font-bold text-[24px]">Sale</p>
       <p>Count: {count}</p>
-      {loading ? (
-        <p>loading...</p>
-      ) : (
-        <BasicTable data={data} columns={columns} />
-      )}
+      {loading ? <p>loading...</p> : <BasicTable data={data} columns={columns} />}
     </div>
   );
 }

@@ -9,34 +9,39 @@ const SettingPage: Route[] = [
   {
     path: '/setting',
     name: 'Setting',
+    roles: ['user', 'admin'],
     icon: CiSettings,
     children: [
       {
-        path: 'product',
+        path: '/setting/product',
         name: 'Product',
         element: <Product />,
+        roles: ['user', 'admin'],
         children: [],
       },
       {
-        path: 'sale',
+        path: '/setting/sale',
         name: 'Sale',
         element: (
-          <ProtectedRoute requiredRole="admin">
+          <ProtectedRoute requiredRoles={['admin']}>
             <Sale />
           </ProtectedRoute>
         ),
+        roles: ['admin'],
         children: [],
       },
       {
-        path: 'shipping',
+        path: '/setting/shipping',
         name: 'Shipping',
         element: <Shipping />,
+        roles: ['user', 'admin'],
         children: [],
       },
       {
-        path: 'refund',
+        path: '/setting/refund',
         name: 'Refund',
         element: <Refund />,
+        roles: ['user', 'admin'],
         children: [],
       },
     ],

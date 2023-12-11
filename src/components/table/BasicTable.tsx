@@ -1,9 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any*/
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
+import { flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
 type BasicTableProps<T> = {
   data: T[];
@@ -34,10 +30,7 @@ const BasicTable = <T,>({ data, columns }: BasicTableProps<T>) => {
                         <div className="font-semibold text-left">
                           {header.isPlaceholder
                             ? null
-                            : flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
-                              )}
+                            : flexRender(header.column.columnDef.header, header.getContext())}
                         </div>
                       </th>
                     ))}
@@ -49,10 +42,7 @@ const BasicTable = <T,>({ data, columns }: BasicTableProps<T>) => {
                   <tr key={row.id} className="odd:bg-white even:bg-gray-100">
                     {row.getVisibleCells().map((cell) => (
                       <td key={cell.id} className="p-2 whitespace-nowrap">
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     ))}
                   </tr>
