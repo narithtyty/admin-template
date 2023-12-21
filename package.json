@@ -15,6 +15,7 @@
   "dependencies": {
     "@tanstack/react-table": "^8.10.7",
     "axios": "^1.6.2",
+    "bignumber.js": "^9.1.2",
     "dompurify": "^3.0.6",
     "echarts": "^5.4.3",
     "echarts-for-react": "^3.0.2",

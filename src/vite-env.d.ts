@@ -7,3 +7,17 @@ interface ImportMeta {
     // Add other environment variables as needed
   };
 }
+
+declare global {
+  const BigNumber: BigNumberConstructor;
+  type BigNumber = BigNumberInstance;
+  namespace BigNumber {
+    type Config = BigNumberConfig;
+    type Constructor = BigNumberConstructor;
+    type Format = BigNumberFormat;
+    type Instance = BigNumberInstance;
+    type ModuloMode = BigNumberModuloMode;
+    type RoundingMode = BigNumberRoundingMode;
+    type Value = BigNumberValue;
+  }
+}

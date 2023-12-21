@@ -77,9 +77,8 @@ echarts.use([
   PieChart,
   LineChart,
 ]);
-// console.log(JSON.stringify(router))
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-ReactDOM.createRoot(document.getElementById('root')!).render(
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider>
       <RouterProvider router={createBrowserRouter(router as RouteObject[])} />
