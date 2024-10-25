@@ -7,8 +7,8 @@ const Login = () => {
   const { login, token } = useAuth();
   const [loading, setLoading] = useState(false);
   const [loginForm, setLoginForm] = useState({
-    username: '',
-    password: '',
+    username: 'admin',
+    password: 'password',
   });
   const navigate = useNavigate();
   const handleLogin = () => {

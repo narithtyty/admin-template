@@ -1,6 +1,6 @@
 import Charts from '@/components/chart/Charts';
 import BigNumber from 'bignumber.js';
-
+import { Button } from '@material-tailwind/react';
 const Dashboard = () => (
   <div>
     <p className="font-bold text-[24px]">Dashboard</p>
@@ -8,6 +8,7 @@ const Dashboard = () => (
     <p>{new Date().formatDate('YYYY-MM-DD')}</p>
     <p>{new BigNumber(0.1).plus(0.2).toString()}</p>
     <p>{new BigNumber(333.4).dividedBy(0.1).toString()}</p>
+    <Button>Button</Button>
     <div className="grid lg:grid-cols-2 grid-cols-1 gap-[10px]">
       <Charts
         options={{

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import withMT from '@material-tailwind/react/utils/withMT'
+module.exports = withMT({
   mode: 'jit',
   content: [
     './index.html',
@@ -15,4 +16,4 @@ module.exports = {
     },
   },
   plugins: [require('flowbite/plugin')],
-};
+});

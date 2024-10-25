@@ -1,6 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
-import { Sidebar } from 'flowbite-react';
+import React, { ReactNode } from 'react';
+import {
+
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+  List,
+  ListItem,
+  ListItemPrefix,
+} from '@material-tailwind/react';
 import { useNavigate } from 'react-router-dom';
 import { HiArrowSmRight } from 'react-icons/hi';
 import { useAuth } from '@/auth';
@@ -18,28 +25,34 @@ function renderRoutes(
   return routes?.map((route: Route) => (
     <React.Fragment key={route.path}>
       {route.children?.length === 0 ? (
-        <Sidebar.Item
+        <ListItem
           className="cursor-pointer"
           onClick={() => navigateTo(route.path ?? '')}
-          icon={getIcon(route)}
         >
+          <ListItemPrefix>{getIcon(route) as ReactNode}</ListItemPrefix>
           {route.name}
-        </Sidebar.Item>
+        </ListItem>
       ) : (
-        <Sidebar.Collapse icon={getIcon(route)} label={route.name}>
-          {renderRoutes(
-            route.children?.filter((item) => !item.index && item.roles?.includes(userRole)),
-            navigateTo,
-            userRole
-          )}
-        </Sidebar.Collapse>
+        <Accordion open>
+          <AccordionHeader>
+            <ListItemPrefix>{getIcon(route) as ReactNode}</ListItemPrefix>
+            {route.name}
+          </AccordionHeader>
+          <AccordionBody>
+            {renderRoutes(
+              route.children?.filter((item) => !item.index && item.roles?.includes(userRole)),
+              navigateTo,
+              userRole
+            )}
+          </AccordionBody>
+        </Accordion>
       )}
     </React.Fragment>
   ));
 }
 
-function getIcon(route: Route): IconType {
-  return route.icon as IconType;
+function getIcon(route: Route) {
+  return route.icon;
 }
 
 function LayoutSidebar() {
@@ -57,23 +70,21 @@ function LayoutSidebar() {
   const filteredRoutes = route.filter((item) => !item.index && item.roles?.includes(userRole));
 
   return (
-    <Sidebar aria-label="">
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          {renderRoutes(filteredRoutes, navigateTo, userRole)}
-          <Sidebar.Item
-            className="cursor-pointer"
-            onClick={() => {
-              logout();
-              setIsOpen(false);
-            }}
-            icon={HiArrowSmRight}
-          >
-            logout
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
+    <div>
+      <List>
+        {renderRoutes(filteredRoutes, navigateTo, userRole)}
+        <ListItem
+          className="cursor-pointer"
+          onClick={() => {
+            logout();
+            setIsOpen(false);
+          }}
+        >
+          <ListItemPrefix><HiArrowSmRight /></ListItemPrefix>
+          logout
+        </ListItem>
+      </List>
+    </div>
   );
 }
 

@@ -18,6 +18,7 @@ export const useAuth = () => {
     setAuth({ token: null, role: 'user' });
     localStorage.removeItem('token');
     localStorage.removeItem('role');
+    localStorage.clear();
   };
 
   return { ...auth, login, logout };

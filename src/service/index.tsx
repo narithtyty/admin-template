@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any*/
 import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 class BaseService {

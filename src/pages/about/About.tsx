@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@/components/button/Button';
 import Modal from '@/components/modal/Modal';
+import TableNested from './Component/TableNested';
 // import { BaseService } from '@/service';
 
 function About() {
@@ -12,6 +13,7 @@ function About() {
   }, []);
   return (
     <div>
+      <TableNested/>
       <p className="font-bold text-[24px]">About</p>
       <Button title="Click" type="primary" onClick={() => setOpen(true)} />
       <Modal isOpen={open} onClose={OnClose}>

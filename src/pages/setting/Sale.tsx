@@ -61,6 +61,7 @@ function Sale() {
 
   useEffect(() => {
     getJsonData();
+    getJsonData
   }, []);
   return (
     <div>

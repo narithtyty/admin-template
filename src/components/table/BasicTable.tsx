@@ -37,17 +37,17 @@ const BasicTable = <T,>({ data, columns }: BasicTableProps<T>) => {
                   </tr>
                 ))}
               </thead>
-              <tbody className="text-sm divide-y divide-gray-100">
-                {table.getRowModel().rows.map((row) => (
-                  <tr key={row.id} className="odd:bg-white even:bg-gray-100">
-                    {row.getVisibleCells().map((cell) => (
-                      <td key={cell.id} className="p-2 whitespace-nowrap">
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
+              <tbody className="text-sm divide-y divide-gray-100 gap-2">
+              {table.getRowModel().rows.map((row, index) => (
+                <tr key={row.id} className={`odd:bg-white even:bg-gray-100 ${index % 2 === 0 ? 'pb-5' : ''}`}>
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} className="p-2 whitespace-nowrap">
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
             </table>
           </div>
         </div>

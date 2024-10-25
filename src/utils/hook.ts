@@ -106,3 +106,42 @@ export const useAppStatus = () => {
 
   return { isActive, elapsedTimeRef: elapsedTimeRef.current };
 };
+
+export const useDisableNumberInputScroll = () => {
+  useEffect(() => {
+    const handleWheel = (e) => {
+      e.preventDefault();
+    };
+
+    const handleKeyPress = (e) => {
+      const dotRegex = /\./;
+      const allowedCharacters = /^[0-9]$/;
+      const input = e.target;
+
+      if (e.key.match(dotRegex) && input.value.match(dotRegex)) {
+        e.preventDefault();
+      } else if (!allowedCharacters.test(e.key) && !e.key.match(dotRegex)) {
+        e.preventDefault();
+      } else if (input.value === '0' && e.key !== '.') {
+        input.value = e.key;
+        e.preventDefault();
+      } else if (input.value === '0' && e.key === '.') {
+        input.value += e.key;
+        e.preventDefault();
+      }
+    };
+
+    const numberInputs = document.querySelectorAll('input[type="text"]');
+    numberInputs.forEach((input) => {
+      input.addEventListener('wheel', handleWheel, { passive: false });
+      input.addEventListener('keypress', handleKeyPress);
+    });
+
+    return () => {
+      numberInputs.forEach((input) => {
+        input.removeEventListener('wheel', handleWheel);
+        input.removeEventListener('keypress', handleKeyPress);
+      });
+    };
+  }, []);
+};
